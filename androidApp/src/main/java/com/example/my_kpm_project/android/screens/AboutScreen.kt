@@ -1,6 +1,5 @@
-package com.example.my_kpm_project.android
+package com.example.my_kpm_project.android.screens
 
-import android.widget.Toolbar
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
