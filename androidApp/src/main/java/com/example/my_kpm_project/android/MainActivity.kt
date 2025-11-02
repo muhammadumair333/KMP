@@ -15,16 +15,14 @@ import com.example.my_kpm_project.articles.ArticlesViewModel
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         val articleViewModel : ArticlesViewModel by viewModels()
-
         setContent {
             MyApplicationTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    ArticlesScreen(articlesViewModel = articleViewModel)
+                    ApplicationScaffold(articleViewModel)
                 }
             }
         }
@@ -35,6 +33,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DefaultPreview() {
     MyApplicationTheme {
-        ArticlesScreen(ArticlesViewModel())
+        ArticlesScreen(onAboutButtonClicked = {}, articlesViewModel = ArticlesViewModel() )
     }
 }

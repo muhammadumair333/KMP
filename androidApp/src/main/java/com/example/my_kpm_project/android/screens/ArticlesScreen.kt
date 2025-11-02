@@ -1,19 +1,26 @@
 package com.example.my_kpm_project.android.screens
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
@@ -30,12 +37,13 @@ import coil.compose.AsyncImage
 
 
 @Composable
-fun ArticlesScreen(articlesViewModel: ArticlesViewModel) {
+fun ArticlesScreen(onAboutButtonClicked: () -> Unit,
+    articlesViewModel: ArticlesViewModel) {
 
     val articlesState = articlesViewModel.articlesState.collectAsState()
 
     Column {
-        AppBar("Articles")
+        AppBar("Articles", onAboutButtonClicked = onAboutButtonClicked)
         when {
             articlesState.value.isLoading -> {
                 Loader()
@@ -53,15 +61,25 @@ fun ArticlesScreen(articlesViewModel: ArticlesViewModel) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AppBar(title : String){
+fun AppBar(title : String, onAboutButtonClicked: () -> Unit){
     TopAppBar(
-        title = { Text(title) }
+        modifier = Modifier.statusBarsPadding(),
+        title = { Text(title) },
+        actions = {
+            IconButton(onClick = onAboutButtonClicked){
+                Icon(
+                    imageVector = androidx.compose.material.icons.Icons.Outlined.Info,
+                    contentDescription = "About")
+            }
+        }
     )
+
 }
 
 @Composable
 fun ArticlesListView(articles : List<Article>){
-    LazyColumn (modifier = Modifier.fillMaxSize()) {
+    LazyColumn (modifier = Modifier.fillMaxSize()
+        .background(Color(0xFFE3F2FD))) {
         items(articles) { article ->
             ArticleItemView(article = article)
         }

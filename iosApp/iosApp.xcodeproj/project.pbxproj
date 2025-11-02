@@ -13,6 +13,7 @@
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		D27D40282EB60EDC005A7845 /* AboutListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D40272EB60EDC005A7845 /* AboutListView.swift */; };
 		D27D402A2EB61541005A7845 /* AboutScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D40292EB61541005A7845 /* AboutScreen.swift */; };
+		D27D402D2EB6401E005A7845 /* ArticlesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D402C2EB6401E005A7845 /* ArticlesScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,7 @@
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D27D40272EB60EDC005A7845 /* AboutListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutListView.swift; sourceTree = "<group>"; };
 		D27D40292EB61541005A7845 /* AboutScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutScreen.swift; sourceTree = "<group>"; };
+		D27D402C2EB6401E005A7845 /* ArticlesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,9 +80,8 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				D27D402B2EB63FFC005A7845 /* screens */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
-				D27D40292EB61541005A7845 /* AboutScreen.swift */,
-				D27D40272EB60EDC005A7845 /* AboutListView.swift */,
 				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
@@ -94,6 +95,16 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D27D402B2EB63FFC005A7845 /* screens */ = {
+			isa = PBXGroup;
+			children = (
+				D27D40292EB61541005A7845 /* AboutScreen.swift */,
+				D27D40272EB60EDC005A7845 /* AboutListView.swift */,
+				D27D402C2EB6401E005A7845 /* ArticlesScreen.swift */,
+			);
+			path = screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D27D402D2EB6401E005A7845 /* ArticlesScreen.swift in Sources */,
 				D27D40282EB60EDC005A7845 /* AboutListView.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
