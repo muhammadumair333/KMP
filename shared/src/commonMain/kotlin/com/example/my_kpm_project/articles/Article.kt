@@ -1,6 +1,5 @@
 package com.example.my_kpm_project.articles
 
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
