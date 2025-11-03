@@ -78,8 +78,7 @@ fun AppBar(title : String, onAboutButtonClicked: () -> Unit){
 
 @Composable
 fun ArticlesListView(articles : List<Article>){
-    LazyColumn (modifier = Modifier.fillMaxSize()
-        .background(Color(0xFFE3F2FD))) {
+    LazyColumn (modifier = Modifier.fillMaxSize() ){
         items(articles) { article ->
             ArticleItemView(article = article)
         }
@@ -94,7 +93,7 @@ fun ArticleItemView(article: Article){
             .padding(16.dp)
     ) {
         AsyncImage(
-            model = article.imageUrl,
+            model = article.urlToImage,
             contentDescription = null
         )
         Spacer(modifier = Modifier.height(4.dp))
@@ -106,7 +105,7 @@ fun ArticleItemView(article: Article){
         Text(text = article.content)
         Spacer(modifier = Modifier.height(4.dp))
         Text(
-            text = article.date,
+            text = article.publishedAt,
             style = TextStyle(color = Color.Gray),
             modifier = Modifier.align(Alignment.End)
         )
