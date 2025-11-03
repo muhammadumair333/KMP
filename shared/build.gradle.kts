@@ -36,6 +36,7 @@ kotlin {
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
+            implementation(libs.kotlinx.datetime)
         }
 
         androidMain.dependencies {
@@ -55,7 +56,7 @@ kotlin {
 
 android {
     namespace = "com.example.my_kpm_project"
-    compileSdk = 35
+    compileSdk = 36
     defaultConfig {
         minSdk = 26
     }
