@@ -20,7 +20,7 @@ import com.example.my_kpm_project.articles.ArticlesViewModel
 fun ApplicationScaffold(articlesViewModel: ArticlesViewModel) {
     val navController = rememberNavController()
     Scaffold (
-        contentWindowInsets = WindowInsets(0)
+       contentWindowInsets = WindowInsets(0)
     ){
         AppNavHost(
             navController = navController,
