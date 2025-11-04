@@ -17,7 +17,7 @@ import com.example.my_kpm_project.articles.ArticlesViewModel
 
 
 @Composable
-fun ApplicationScaffold(articlesViewModel: ArticlesViewModel) {
+fun ApplicationScaffold() {
     val navController = rememberNavController()
     Scaffold (
        contentWindowInsets = WindowInsets(0)
@@ -26,15 +26,13 @@ fun ApplicationScaffold(articlesViewModel: ArticlesViewModel) {
             navController = navController,
             modifier = Modifier
                 .fillMaxSize()
-                .padding(it),
-            articlesViewModel = articlesViewModel
+                .padding(it)
         )
     }
 }
 @Composable
 fun AppNavHost(navController: NavHostController,
-               modifier: Modifier= Modifier,
-               articlesViewModel: ArticlesViewModel){
+               modifier: Modifier= Modifier){
 
     NavHost(
         navController = navController,
@@ -45,8 +43,7 @@ fun AppNavHost(navController: NavHostController,
             ArticlesScreen(
                 onAboutButtonClicked = {
                     navController.navigate(Screen.ABOUT.route)
-                },
-                articlesViewModel = articlesViewModel
+                }
             )
         }
         composable(Screen.ABOUT.route) {
