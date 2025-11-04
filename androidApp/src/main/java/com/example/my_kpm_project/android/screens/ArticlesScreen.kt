@@ -99,7 +99,7 @@ fun ArticleItemView(article: Article){
             style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 22.sp)
         )
         Spacer(modifier = Modifier.height(8.dp))
-        Text(text = article.content)
+        Text(text = article.description)
         Spacer(modifier = Modifier.height(4.dp))
         Text(
             text = article.publishedAt,
