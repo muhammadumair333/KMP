@@ -1,11 +1,11 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.tooling.core.linearClosure
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     id("co.touchlab.skie") version "0.10.6"
     kotlin("plugin.serialization") version "1.9.10"
+    alias(libs.plugins.sqlDelight)
 }
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
@@ -67,5 +67,13 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+}
+
+sqldelight {
+    databases {
+        create("MyKpmAppDatabase") {
+            packageName.set("com.example.my_kpm_project.db")
+        }
     }
 }
