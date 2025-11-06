@@ -12,6 +12,8 @@ kotlinxDatetime = "0.6.0"
 ktorClientCore = "2.3.12"
 lifecycleViewmodelKtx = "2.6.2"
 navigationCompose = "2.6.0"
+accompanistSwiperefresh = "0.24.13-rc"
+
 
 [libraries]
 android-driver = { module = "app.cash.sqldelight:android-driver", version.ref = "sqlDelight" }
@@ -36,6 +38,7 @@ koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinCore
 koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinCore" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koinCore" }
 native-driver = { module = "app.cash.sqldelight:native-driver", version.ref = "sqlDelight" }
+accompanist-swiperefresh = { module = "com.google.accompanist:accompanist-swiperefresh", version.ref = "accompanistSwiperefresh" }
 
 
 [plugins]

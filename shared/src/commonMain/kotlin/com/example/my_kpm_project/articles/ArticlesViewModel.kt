@@ -1,6 +1,7 @@
 package com.example.my_kpm_project.articles
 
 import com.example.my_kpm_project.BaseViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -17,9 +18,11 @@ class ArticlesViewModel(private val useCase: ArticlesUseCase) : BaseViewModel() 
     val articlesState: StateFlow<ArticlesState>
         get() = _articlesState
 
-    private fun getArticles() {
+    fun getArticles(forceFetch : Boolean = false) {
         scope.launch {
-            val fetchedArticle = useCase.getArticles()
+            _articlesState.emit(ArticlesState(isLoading = true,
+                articles = articlesState.value.articles))
+            val fetchedArticle = useCase.getArticles(forceFetch)
             _articlesState.emit(ArticlesState(articles = fetchedArticle))
         }
     }

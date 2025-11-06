@@ -1,19 +1,27 @@
 package com.example.my_kpm_project.articles
 
-import io.ktor.util.logging.Logger
 
 class ArticlesRepository(private val articlesDataSource: ArticleDataSource,
     private val articlesService: ArticlesService) {
 
-    suspend fun getArticles(): List<RawArticle> {
+    suspend fun getArticles(forceFetch : Boolean): List<RawArticle> {
+
+        if(forceFetch){
+            articlesDataSource.clearAllArticles()
+            return fetchArticlesFromNetwork()
+        }
+
         val articlesDatabase = articlesDataSource.getArticles()
-        println("Articles in DB: ${articlesDatabase.size}")
         if(articlesDatabase.isEmpty()){
-            val fetchedArticles = articlesService.getArticles()
-            articlesDataSource.insertAllArticles(fetchedArticles)
-            return fetchedArticles
+            return fetchArticlesFromNetwork()
         }
         return articlesDatabase
+    }
+
+    private suspend fun fetchArticlesFromNetwork(): List<RawArticle> {
+        val fetchedArticles = articlesService.getArticles()
+        articlesDataSource.insertAllArticles(fetchedArticles)
+        return fetchedArticles
     }
 
 }

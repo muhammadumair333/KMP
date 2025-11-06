@@ -31,6 +31,8 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.my_kpm_project.articles.Article
 import com.example.my_kpm_project.articles.ArticlesViewModel
+import com.google.accompanist.swiperefresh.SwipeRefresh
+import com.google.accompanist.swiperefresh.SwipeRefreshState
 import org.koin.androidx.compose.getViewModel
 
 
@@ -44,14 +46,11 @@ fun ArticlesScreen(onAboutButtonClicked: () -> Unit,
     Column {
         AppBar("Articles", onAboutButtonClicked = onAboutButtonClicked)
         when {
-            articlesState.value.isLoading -> {
-                Loader()
-            }
             articlesState.value.error != null -> {
                 ErrorMessageView(message = articlesState.value.error!!)
             }
             else -> {
-                ArticlesListView(articles = articlesState.value.articles)
+                ArticlesListView(articlesViewModel = articlesViewModel)
             }
         }
     }
@@ -76,10 +75,14 @@ fun AppBar(title : String, onAboutButtonClicked: () -> Unit){
 }
 
 @Composable
-fun ArticlesListView(articles : List<Article>){
-    LazyColumn (modifier = Modifier.fillMaxSize() ){
-        items(articles) { article ->
-            ArticleItemView(article = article)
+fun ArticlesListView(articlesViewModel: ArticlesViewModel) {
+    SwipeRefresh(
+        state = SwipeRefreshState(articlesViewModel.articlesState.value.isLoading),
+        onRefresh = { articlesViewModel.getArticles(true) }) {
+        LazyColumn(modifier = Modifier.fillMaxSize()) {
+            items(articlesViewModel.articlesState.value.articles) { article ->
+                ArticleItemView(article = article)
+            }
         }
     }
 }
@@ -109,20 +112,6 @@ fun ArticleItemView(article: Article){
             modifier = Modifier.align(Alignment.End)
         )
         Spacer(modifier = Modifier.height(4.dp))
-    }
-}
-
-@Composable
-fun Loader() {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        CircularProgressIndicator(
-            modifier = Modifier.width(64.dp),
-            color = MaterialTheme.colorScheme.surfaceVariant,
-            trackColor = MaterialTheme.colorScheme.secondary,
-        )
     }
 }
 
