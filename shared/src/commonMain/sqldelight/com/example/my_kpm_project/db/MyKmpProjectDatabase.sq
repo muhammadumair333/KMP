@@ -1,12 +1,12 @@
 CREATE TABLE Article (
     Title TEXT NOT NULL,
-    Content TEXT,
+    Description TEXT,
     PublishedAt TEXT NOT NULL,
     ImageUrl TEXT
 );
 
 InsertArticle:
-INSERT INTO Article (Title, Content, PublishedAt, ImageUrl)
+INSERT INTO Article (Title, Description, PublishedAt, ImageUrl)
 VALUES (?, ?, ?, ?);
 
 SelectAllArticles:
