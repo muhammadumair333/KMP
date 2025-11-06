@@ -27,8 +27,7 @@ class ArticleDataSource(private val database : MyKpmAppDatabase) {
         title = title,
         description = description,
         publishedAt= publishedAt,
-        urlToImage = urlToImage,
-        content = null
+        urlToImage = urlToImage
     )
 
     private fun insertArticle(article: RawArticle) {
