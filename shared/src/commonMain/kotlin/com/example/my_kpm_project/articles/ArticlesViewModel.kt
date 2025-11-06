@@ -1,7 +1,6 @@
 package com.example.my_kpm_project.articles
 
 import com.example.my_kpm_project.BaseViewModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
