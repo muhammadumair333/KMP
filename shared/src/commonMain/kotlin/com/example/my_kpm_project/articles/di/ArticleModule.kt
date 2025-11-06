@@ -1,10 +1,10 @@
 package com.example.my_kpm_project.articles.di
 
-import com.example.my_kpm_project.articles.ArticleDataSource
-import com.example.my_kpm_project.articles.ArticlesRepository
-import com.example.my_kpm_project.articles.ArticlesService
-import com.example.my_kpm_project.articles.ArticlesUseCase
-import com.example.my_kpm_project.articles.ArticlesViewModel
+import com.example.my_kpm_project.articles.data.ArticleDataSource
+import com.example.my_kpm_project.articles.data.ArticlesRepository
+import com.example.my_kpm_project.articles.data.ArticlesService
+import com.example.my_kpm_project.articles.application.ArticlesUseCase
+import com.example.my_kpm_project.articles.presentation.ArticlesViewModel
 import org.koin.dsl.module
 
 val articleModule = module {

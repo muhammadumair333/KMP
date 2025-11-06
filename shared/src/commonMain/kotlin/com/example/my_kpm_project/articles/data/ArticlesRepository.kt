@@ -1,8 +1,9 @@
-package com.example.my_kpm_project.articles
+package com.example.my_kpm_project.articles.data
 
 
 class ArticlesRepository(private val articlesDataSource: ArticleDataSource,
-    private val articlesService: ArticlesService) {
+                         private val articlesService: ArticlesService
+) {
 
     suspend fun getArticles(forceFetch : Boolean): List<RawArticle> {
 

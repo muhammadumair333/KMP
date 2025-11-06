@@ -1,4 +1,4 @@
-package com.example.my_kpm_project.articles
+package com.example.my_kpm_project.articles.data
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body

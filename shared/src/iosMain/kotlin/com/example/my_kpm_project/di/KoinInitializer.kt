@@ -1,6 +1,6 @@
 package com.example.my_kpm_project.di
 
-import com.example.my_kpm_project.articles.ArticlesViewModel
+import com.example.my_kpm_project.articles.presentation.ArticlesViewModel
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import org.koin.core.context.startKoin

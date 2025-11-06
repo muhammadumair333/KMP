@@ -1,6 +1,6 @@
 package com.example.my_kpm_project.android.di
 
-import com.example.my_kpm_project.articles.ArticlesViewModel
+import com.example.my_kpm_project.articles.presentation.ArticlesViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

@@ -1,4 +1,4 @@
-package com.example.my_kpm_project.articles
+package com.example.my_kpm_project.articles.application
 
 import kotlinx.serialization.Serializable
 

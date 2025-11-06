@@ -1,5 +1,7 @@
-package com.example.my_kpm_project.articles
+package com.example.my_kpm_project.articles.application
 
+import com.example.my_kpm_project.articles.data.ArticlesRepository
+import com.example.my_kpm_project.articles.data.RawArticle
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.datetime.TimeZone
