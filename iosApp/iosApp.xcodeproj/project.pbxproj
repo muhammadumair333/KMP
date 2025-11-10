@@ -14,6 +14,7 @@
 		D27D40282EB60EDC005A7845 /* AboutListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D40272EB60EDC005A7845 /* AboutListView.swift */; };
 		D27D402A2EB61541005A7845 /* AboutScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D40292EB61541005A7845 /* AboutScreen.swift */; };
 		D27D402D2EB6401E005A7845 /* ArticlesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D402C2EB6401E005A7845 /* ArticlesScreen.swift */; };
+		D28AC4FE2EC2236C00D79823 /* SourceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28AC4FD2EC2236C00D79823 /* SourceScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +40,7 @@
 		D27D40272EB60EDC005A7845 /* AboutListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutListView.swift; sourceTree = "<group>"; };
 		D27D40292EB61541005A7845 /* AboutScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutScreen.swift; sourceTree = "<group>"; };
 		D27D402C2EB6401E005A7845 /* ArticlesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesScreen.swift; sourceTree = "<group>"; };
+		D28AC4FD2EC2236C00D79823 /* SourceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				D27D40292EB61541005A7845 /* AboutScreen.swift */,
 				D27D40272EB60EDC005A7845 /* AboutListView.swift */,
 				D27D402C2EB6401E005A7845 /* ArticlesScreen.swift */,
+				D28AC4FD2EC2236C00D79823 /* SourceScreen.swift */,
 			);
 			path = screens;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D28AC4FE2EC2236C00D79823 /* SourceScreen.swift in Sources */,
 				D27D402D2EB6401E005A7845 /* ArticlesScreen.swift in Sources */,
 				D27D40282EB60EDC005A7845 /* AboutListView.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,

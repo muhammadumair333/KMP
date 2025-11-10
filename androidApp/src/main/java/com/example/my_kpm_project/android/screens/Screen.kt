@@ -4,5 +4,6 @@ import okhttp3.Route
 
 enum class Screen(val route: String) {
     ARTICLES("articles"),
-    ABOUT("about")
+    SOURCE("source"),
+    ABOUT("about"),
 }

@@ -1,8 +1,6 @@
 package com.example.my_kpm_project.articles.data
 
 import com.example.my_kpm_project.base.Constants
-import com.example.my_kpm_project.sources.data.RawSource
-import com.example.my_kpm_project.sources.data.SourcesResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get

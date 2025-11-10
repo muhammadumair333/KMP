@@ -22,7 +22,7 @@ extension ArticlesScreen {
             articlesState = articlesViewModel.articlesState.value
         }
         
-        @Published var articlesState: ArticlesState
+        @Published var articlesState: UIState<NSArray>
         
         func startObserving() {
             Task {
@@ -40,7 +40,7 @@ struct ArticlesScreen: View {
     
     var body: some View {
         VStack {
-            AppBar()
+            AppBar(title: "Articles")
             
             if viewModel.articlesState.isLoading {
                 Loader()
@@ -49,30 +49,23 @@ struct ArticlesScreen: View {
             if let error = viewModel.articlesState.error {
                 ErrorMessage(message: error)
             }
-            
-            if(!viewModel.articlesState.articles.isEmpty) {
-                ScrollView {
-                    LazyVStack(spacing: 10) {
-                        ForEach(viewModel.articlesState.articles, id: \.self) { article in
-                            ArticleItemView(article: article)
+            else if let articles = viewModel.articlesState.result as? [Article], !articles.isEmpty {
+                        ScrollView {
+                            LazyVStack(spacing: 10) {
+                                ForEach(articles, id: \.self) { article in
+                                    ArticleItemView(article: article)
+                                }
+                            }
                         }
                     }
                 }
-            }
-            
-        }.onAppear{
-            self.viewModel.startObserving()
-        }
+                .onAppear {
+                    viewModel.startObserving()
+                }
     }
 }
 
-struct AppBar: View {
-    var body: some View {
-        Text("Articles")
-            .font(.largeTitle)
-            .fontWeight(.bold)
-    }
-}
+
 
 struct ArticleItemView: View {
     var article: Article
@@ -97,6 +90,15 @@ struct ArticleItemView: View {
             Text(article.publishedAt).frame(maxWidth: .infinity, alignment: .trailing).foregroundStyle(.gray)
         }
         .padding(16)
+    }
+}
+
+struct AppBar: View {
+    let title: String
+    var body: some View {
+        Text(title)
+            .font(.largeTitle)
+            .fontWeight(.bold)
     }
 }
 

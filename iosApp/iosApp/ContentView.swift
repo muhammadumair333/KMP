@@ -4,13 +4,24 @@ import shared
 struct ContentView: View {
 
     @State private var shouldOpenAbout = false
+    @State private var shouldOpenSource = false
 	var body: some View {
         
         let articleScreen = ArticlesScreen(viewModel: .init())
         NavigationStack{
             articleScreen
                 .toolbar{
-                    ToolbarItem{
+                    ToolbarItemGroup{
+                        
+                        Button{
+                            shouldOpenSource = true
+                        } label: {
+                            Label("Source", systemImage: "gearshape").labelStyle(.titleAndIcon)
+                        }
+                        .popover(isPresented: $shouldOpenSource){
+                            SourceScreen(viewModel: .init())
+                        }
+                        
                         Button{
                             shouldOpenAbout = true
                         } label: {
@@ -19,6 +30,8 @@ struct ContentView: View {
                         .popover(isPresented: $shouldOpenAbout){
                             AboutScreen()
                         }
+                        
+                        
                     }
                 }
         }.refreshable {

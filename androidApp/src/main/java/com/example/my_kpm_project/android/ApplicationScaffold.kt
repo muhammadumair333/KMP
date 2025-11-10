@@ -13,6 +13,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.my_kpm_project.android.screens.AboutScreen
 import com.example.my_kpm_project.android.screens.ArticlesScreen
 import com.example.my_kpm_project.android.screens.Screen
+import com.example.my_kpm_project.android.screens.SourceScreen
 
 
 @Composable
@@ -40,11 +41,22 @@ fun AppNavHost(navController: NavHostController,
     ) {
         composable(Screen.ARTICLES.route) {
             ArticlesScreen(
+                onSourceButtonClicked = {
+                    navController.navigate(Screen.SOURCE.name)
+                },
                 onAboutButtonClicked = {
                     navController.navigate(Screen.ABOUT.route)
                 }
             )
         }
+        composable(Screen.SOURCE.name){
+            SourceScreen(
+                onUpButtonClicked = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
         composable(Screen.ABOUT.route) {
             AboutScreen(
                 onUpButtonClicked = {
@@ -52,6 +64,5 @@ fun AppNavHost(navController: NavHostController,
                 }
             )
         }
-
     }
 }

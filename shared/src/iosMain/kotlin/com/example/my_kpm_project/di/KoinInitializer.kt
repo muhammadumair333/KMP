@@ -1,6 +1,7 @@
 package com.example.my_kpm_project.di
 
 import com.example.my_kpm_project.articles.presentation.ArticlesViewModel
+import com.example.my_kpm_project.sources.presentation.SourceViewModel
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import org.koin.core.context.startKoin
@@ -15,4 +16,8 @@ fun initKoin() {
 
 class ArticlesInjector : KoinComponent {
     val articleViewModel: ArticlesViewModel by inject()
+}
+
+class SourceInjector : KoinComponent {
+    val sourceViewModel : SourceViewModel by inject()
 }
