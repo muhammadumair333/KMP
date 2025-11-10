@@ -3,6 +3,7 @@ package com.example.my_kpm_project.articles.data
 import com.example.my_kpm_project.db.MyKpmAppDatabase
 
 class ArticleDataSource(private val database : MyKpmAppDatabase) {
+
     fun getArticles(): List<RawArticle> =
         database.myKmpProjectDatabaseQueries.SelectAllArticles(::mapToArticleRaw).executeAsList()
 

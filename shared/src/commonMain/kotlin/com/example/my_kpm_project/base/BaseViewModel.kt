@@ -1,4 +1,4 @@
-package com.example.my_kpm_project
+package com.example.my_kpm_project.base
 
 import kotlinx.coroutines.CoroutineScope
 

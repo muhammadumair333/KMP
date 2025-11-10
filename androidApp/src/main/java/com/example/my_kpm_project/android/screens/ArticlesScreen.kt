@@ -73,11 +73,13 @@ fun AppBar(title : String, onAboutButtonClicked: () -> Unit){
 
 @Composable
 fun ArticlesListView(articlesViewModel: ArticlesViewModel) {
+    val articlesState = articlesViewModel.articlesState.collectAsState()
     SwipeRefresh(
-        state = SwipeRefreshState(articlesViewModel.articlesState.value.isLoading),
+        state = SwipeRefreshState(isRefreshing = articlesState.value.isLoading),
         onRefresh = { articlesViewModel.getArticles(true) }) {
         LazyColumn(modifier = Modifier.fillMaxSize()) {
-            items(articlesViewModel.articlesState.value.articles) { article ->
+            val articles = articlesState.value.result ?: emptyList()
+            items(articles) { article ->
                 ArticleItemView(article = article)
             }
         }
